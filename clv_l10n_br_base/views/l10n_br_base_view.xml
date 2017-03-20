@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Municípios" id="menu_action_l10n_br_base_city_form"
+            parent="sales_team.menu_localisation"
+            sequence="10"
+            action="l10n_br_base.action_l10n_br_base_city_form"/>
+
+    </data>
+</odoo>
