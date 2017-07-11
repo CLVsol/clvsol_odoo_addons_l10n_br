@@ -2,10 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===============================
-Addres - Brazilian Localization
-===============================
+================================
+Address - Brazilian Localization
+================================
 
-Addres Module - Brazilian Localization.
+Address Module - Brazilian Localization.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.
