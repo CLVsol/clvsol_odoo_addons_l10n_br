@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="clv_person_view_form_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form"/>
+            <field name="arch" type="xml">
+                <field name="identification_id" position="replace">
+                    <field name="identification_id" invisible="1"/>
+                    <field name="cpf"/>
+                </field>
+                <field name="otherid" position="replace">
+                    <field name="otherid" invisible="1"/>
+                    <field name="rg"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_view_form_address_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form_address"/>
+            <field name="arch" type="xml">
+                <field name="address_category_ids" position="after">
+                    <field name="address_district" string="Address District"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_view_tree_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.tree</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="cpf"/>
+                    <field name="rg"/>
+                    <field name="address_district" string="Address District"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_view_search_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.filter</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_search"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="cpf"/>
+                    <field name="rg"/>
+                    <field name="address_district"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Address District" context="{'group_by': 'address_district'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

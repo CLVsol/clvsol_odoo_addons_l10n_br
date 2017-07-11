@@ -7,30 +7,25 @@
             <field name="model">clv.address</field>
             <field name="inherit_id" ref="clv_address.clv_address_view_form"/>
             <field name="arch" type="xml">
+                <field name="street2" position="replace"/>
                 <field name="zip" position="replace"/>
                 <field name="street" position="replace">
-                    <field name="zip" placeholder="CEP"/>
-                    <field name="street" placeholder="Street"/>
+                    <field name="street" placeholder="Street..." class="o_address_street" default_focus="1"/>
                     <field name="number" placeholder="Number"/>
-                    <field name="district" placeholder="Disctrict"/>
-                </field>
-                <field name="street2" position="replace">
-                    <field name="street2" placeholder="Complement"/>
+                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                    <field name="district" placeholder="Disctrict" class="o_address_street"/>
+                    <field name="zip" placeholder="CEP" class="o_address_zip"/>
                 </field>
                 <field name="state_id" position="attributes">
                     <attribute name="domain">[('country_id','=',country_id)]
                     </attribute>
-                    <attribute name="style">width: 70%%</attribute>
                 </field>
-                <field name="state_id" position="after">
-                    <field name="l10n_br_city_id" placeholder="City"/>
+                <field name="state_id" position="before">
+                    <!--field name="l10n_br_city_id" placeholder="City" class="o_address_city" options='{"no_open": True, "no_create": True}'/-->
+                    <field name="l10n_br_city_id" placeholder="City" class="o_address_street" options='{"no_open": True, "no_create": True}'/>
                 </field>
                 <field name="city" position="replace">
                     <field name="city" invisible="1"/>
-                </field>
-                <field name="country_id" position="replace"/>
-                <field name="state_id" position="before">
-                    <field name="country_id" placeholder="Country"/>
                 </field>
                 <field name="zip" position="attributes">
                     <attribute name="style">width: 50%</attribute>
