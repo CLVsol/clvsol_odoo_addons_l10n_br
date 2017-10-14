@@ -24,7 +24,7 @@ from odoo.exceptions import Warning
 import re
 
 
-class PersonManagement(models.Model):
+class PersonMng(models.Model):
     _inherit = 'clv.person.mng'
 
     l10n_br_city_id = fields.Many2one(
@@ -86,3 +86,23 @@ class PersonManagement(models.Model):
                 )
             else:
                 raise Warning(('Warning. No records found!'))
+
+
+class PersonMng_2(models.Model):
+    _inherit = 'clv.person.mng'
+
+    @api.depends('street', 'number', 'street2')
+    def _get_suggested_address_name(self):
+        for record in self:
+            if record.street:
+                record.suggested_address_name = record.street
+                if record.number:
+                    record.suggested_address_name = record.suggested_address_name + ', ' + record.number
+                if record.street2:
+                    record.suggested_address_name = record.suggested_address_name + ' - ' + record.street2
+            else:
+                if not record.suggested_address_name:
+                    if record.street:
+                        record.suggested_address_name = record.street
+            if record.automatic_set_address_name:
+                record.address_name = record.suggested_address_name
