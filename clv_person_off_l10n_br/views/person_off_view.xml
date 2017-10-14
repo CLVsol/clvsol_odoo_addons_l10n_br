@@ -19,6 +19,9 @@
                     </button>
                     <field name="l10n_br_city_id" placeholder="City" class="o_address_street" options='{"no_open": True, "no_create": True}'/>
                 </field>
+                <field name="city" position="replace">
+                    <field name="city" invisible="1"/>
+                </field>
             </field>
         </record>
 
