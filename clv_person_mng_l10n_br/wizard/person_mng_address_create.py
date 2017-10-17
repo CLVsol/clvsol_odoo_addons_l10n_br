@@ -47,8 +47,6 @@ class PersonMngAddressCreate(models.TransientModel):
 
                 if person_mng.address_id.id is False:
 
-                    _logger.info(u'>>>>>>>>>> %s: %s', 'action_address', person_mng.action_address)
-
                     suggested_name = False
                     if person_mng.street:
                         suggested_name = person_mng.street
@@ -100,5 +98,9 @@ class PersonMngAddressCreate(models.TransientModel):
                         new_address.code = '/'
 
                         person_mng.address_id = new_address.id
+
+                        _logger.info(u'>>>>>>>>>> %s: %s', 'action_address', person_mng.action_address)
+
+                        person_mng.action_address = 'none'
 
         return True
