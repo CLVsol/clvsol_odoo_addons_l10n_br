@@ -45,6 +45,7 @@ class PersonMngAddressSearch(models.TransientModel):
                     ('street', '=', person_mng.street),
                     ('number', '=', person_mng.number),
                     ('street2', '=', person_mng.street2),
+                    ('district', '=', person_mng.district),
                 ])
                 if adddress.id is not False:
 
