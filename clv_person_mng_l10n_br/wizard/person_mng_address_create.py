@@ -49,6 +49,7 @@ class PersonMngAddressCreate(models.TransientModel):
                     ('street', '=', person_mng.street),
                     ('number', '=', person_mng.number),
                     ('street2', '=', person_mng.street2),
+                    ('district', '=', person_mng.district),
                 ])
                 if address.id is False:
 
