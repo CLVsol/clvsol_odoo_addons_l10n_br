@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_address_updt_view_form_l10n_br" model="ir.ui.view">
+            <field name="name">clv.address.updt.form</field>
+            <field name="model">clv.address.updt</field>
+            <field name="inherit_id" ref="clv_address.clv_address_updt_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group name="street" position="after">
+                    <group>
+                        <field name="district_selection"/>
+                    </group>
+                    <group>
+                        <field name="district" nolabel='1'/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

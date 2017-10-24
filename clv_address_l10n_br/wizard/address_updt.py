@@ -18,31 +18,36 @@
 #
 ###############################################################################
 
-{
-    'name': 'Address - Brazilian Localization',
-    'summary': 'Address Module - Brazilian Localization.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'images': [],
-    'depends': [
-        'clv_address',
-        'l10n_br_base',
-        'l10n_br_zip',
-    ],
-    'data': [
-        'views/address_view.xml',
-        'wizard/address_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import logging
+
+from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
+
+
+class AddressUpdate(models.TransientModel):
+    _inherit = 'clv.address.updt'
+
+    district = fields.Char(string='District')
+    district_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='District', default=False, readonly=False, required=False
+    )
+
+    @api.multi
+    def do_address_updt(self):
+        self.ensure_one()
+
+        super(AddressUpdate, self).do_address_updt()
+
+        for address in self.address_ids:
+
+            _logger.info(u'%s %s', '>>>>>', address.name)
+
+            if self.district_selection == 'set':
+                address.district = self.district
+            if self.district_selection == 'remove':
+                address.district = False
+
+        return True

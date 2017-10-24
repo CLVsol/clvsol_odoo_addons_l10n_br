@@ -18,31 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Address - Brazilian Localization',
-    'summary': 'Address Module - Brazilian Localization.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'images': [],
-    'depends': [
-        'clv_address',
-        'l10n_br_base',
-        'l10n_br_zip',
-    ],
-    'data': [
-        'views/address_view.xml',
-        'wizard/address_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import address_updt
