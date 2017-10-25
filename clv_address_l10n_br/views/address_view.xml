@@ -35,6 +35,9 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </field>
+                <group name="settings" position="inside">
+                    <field name="use_district"/>
+                </group>
             </field>
         </record>
 

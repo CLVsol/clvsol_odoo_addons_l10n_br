@@ -129,11 +129,35 @@ class Address_2(models.Model):
 class Address_3(models.Model):
     _inherit = 'clv.address'
 
-    @api.depends('street', 'number', 'street2')
+    use_district = fields.Boolean(
+        string='Use District',
+        help="If checked, the Address Name will contain the field District.",
+        default=True
+    )
+
+    # @api.depends('street', 'number', 'street2')
+    # def _get_suggested_name(self):
+    #     for record in self:
+    #         if record.street:
+    #             record.suggested_name = record.street
+    #             if record.number:
+    #                 record.suggested_name = record.suggested_name + ', ' + record.number
+    #             if record.street2:
+    #                 record.suggested_name = record.suggested_name + ' - ' + record.street2
+    #         else:
+    #             if not record.suggested_name:
+    #                 if record.code:
+    #                     record.suggested_name = record.code
+    #         if record.automatic_set_name:
+    #             record.name = record.suggested_name
+    @api.depends('street', 'number', 'street2', 'district')
     def _get_suggested_name(self):
         for record in self:
             if record.street:
                 record.suggested_name = record.street
+                if record.use_district:
+                    if record.district:
+                        record.suggested_name = record.suggested_name + ' (' + record.district + ')'
                 if record.number:
                     record.suggested_name = record.suggested_name + ', ' + record.number
                 if record.street2:
