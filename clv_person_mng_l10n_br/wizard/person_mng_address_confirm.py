@@ -71,5 +71,3 @@ class PersonMngAddressConfirm(models.TransientModel):
                 person_mng.action_address = 'none'
 
         return True
-
-        return True
