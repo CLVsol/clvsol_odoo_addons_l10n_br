@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="clv_person_history_view_form_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.history.form</field>
+            <field name="model">clv.person.history</field>
+            <field name="inherit_id" ref="clv_person_history.clv_person_history_view_form"/>
+            <field name="arch" type="xml">
+                <field name="address_category_names" position="after">
+                    <field name="address_district"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_history_view_tree_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.history.tree</field>
+            <field name="model">clv.person.history</field>
+            <field name="inherit_id" ref="clv_person_history.clv_person_history_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="address_category_names" position="after">
+                    <field name="address_district" string="Address District"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_history_view_search_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.history.filter</field>
+            <field name="model">clv.person.history</field>
+            <field name="inherit_id" ref="clv_person_history.clv_person_history_view_search"/>
+            <field name="arch" type="xml">
+                <field name="address_category_names" position="after">
+                    <field name="address_district"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Address District" context="{'group_by': 'address_district'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
