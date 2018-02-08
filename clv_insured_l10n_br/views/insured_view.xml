@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="clv_insured_view_form_l10n_br" model="ir.ui.view">
+            <field name="name">clv.insured.form</field>
+            <field name="model">clv.insured</field>
+            <field name="inherit_id" ref="clv_insured.clv_insured_view_form"/>
+            <field name="arch" type="xml">
+                <field name="identification_id" position="replace">
+                    <field name="identification_id" invisible="1"/>
+                    <field name="cpf"/>
+                </field>
+                <field name="otherid" position="replace">
+                    <field name="otherid" invisible="1"/>
+                    <field name="rg"/>
+                </field>
+                <field name="city" position="replace">
+                    <field name="city" invisible="1"/>
+                </field>
+                <field name="zip" position="replace"/>
+                <field name="street" position="after">
+                    <field name="number" placeholder="Number"/>
+                </field>
+                <field name="street2" position="after">
+                    <field name="district" placeholder="Disctrict" class="o_address_street"/>
+                    <field name="zip" placeholder="ZIP" class="o_address_zip" style="width:32%"/>
+                    <button name="zip_search" type="object" class="oe_inline, oe_edit_only">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <field name="l10n_br_city_id" placeholder="City" class="o_address_city" options='{"no_open": True, "no_create": True}'/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_insured_view_tree_l10n_br" model="ir.ui.view">
+            <field name="name">clv.insured.tree</field>
+            <field name="model">clv.insured</field>
+            <field name="inherit_id" ref="clv_insured.clv_insured_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="cpf"/>
+                    <field name="rg"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_insured_view_search_l10n_br" model="ir.ui.view">
+            <field name="name">clv.insured.filter</field>
+            <field name="model">clv.insured</field>
+            <field name="inherit_id" ref="clv_insured.clv_insured_view_search"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="cpf"/>
+                    <field name="rg"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
