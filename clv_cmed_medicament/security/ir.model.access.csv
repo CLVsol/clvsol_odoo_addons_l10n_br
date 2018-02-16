@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_clv_cmed_medicament_user,clv.cmed.medicament,model_clv_cmed_medicament,clv_cmed_medicament.group_user,1,0,0,0
+access_clv_cmed_medicament_manager,clv.cmed.medicament,model_clv_cmed_medicament,clv_cmed_medicament.group_manager,1,1,1,0
+access_clv_cmed_medicament_supmanager,clv.cmed.medicament,model_clv_cmed_medicament,clv_cmed_medicament.group_supmanager,1,1,1,1
+
+access_clv_cmed_medicament_list_user,clv.cmed.medicament.list,model_clv_cmed_medicament_list,clv_cmed_medicament.group_user,1,0,0,0
+access_clv_cmed_medicament_list_manager,clv.cmed.medicament.list,model_clv_cmed_medicament_list,clv_cmed_medicament.group_manager,1,1,1,0
+access_clv_cmed_medicament_list_supmanager,clv.cmed.medicament.list,model_clv_cmed_medicament_list,clv_cmed_medicament.group_supmanager,1,1,1,1
+
+access_clv_cmed_medicament_list_item_user,clv.cmed.medicament.list.item,model_clv_cmed_medicament_list_item,clv_cmed_medicament.group_user,1,0,0,0
+access_clv_cmed_medicament_list_item_manager,clv.cmed.medicament.list.item,model_clv_cmed_medicament_list_item,clv_cmed_medicament.group_manager,1,1,1,0
+access_clv_cmed_medicament_list_item_supmanager,clv.cmed.medicament.list.item,model_clv_cmed_medicament_list_item,clv_cmed_medicament.group_supmanager,1,1,1,1
