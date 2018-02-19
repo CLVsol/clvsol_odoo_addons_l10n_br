@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="clv_abcfarma_medicament.group_user" model="res.groups">
+            <field name="name">User (ABCFarma Medicament)</field>
+        </record>
+        
+        <record id="clv_abcfarma_medicament.group_manager" model="res.groups">
+            <field name="name">Manager (ABCFarma Medicament)</field>
+            <field name="implied_ids" eval="[(4, ref('clv_abcfarma_medicament.group_user'))]"/>
+        </record>
+        
+        <record id="clv_abcfarma_medicament.group_supmanager" model="res.groups">
+            <field name="name">Super Manager (ABCFarma Medicament)</field>
+            <field name="implied_ids" eval="[(4, ref('clv_abcfarma_medicament.group_manager'))]"/>
+        </record>
+
+    </data>
+</openerp>
