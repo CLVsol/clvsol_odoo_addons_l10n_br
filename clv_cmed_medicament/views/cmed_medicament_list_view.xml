@@ -24,7 +24,7 @@
                         <div name="title" class="oe_title">
                             <label for="code" class="oe_edit_only"/>
                             <h3><field name="code" placeholder="List Code..."/></h3>
-                            <label for="description"/>
+                            <label for="description" class="oe_edit_only"/>
                             <h3>
                                 <field name="description" placeholder="Description..."/>
                             </h3>

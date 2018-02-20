@@ -21,3 +21,4 @@
 from . import cmed_medicament
 from . import cmed_medicament_list
 from . import cmed_medicament_list_item
+from . import file_system

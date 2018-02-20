@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_cmed_medicament_list_view_form_file_system" model="ir.ui.view">
+            <field name="name">clv.cmed.medicament.list.form</field>
+            <field name="model">clv.cmed.medicament.list</field>
+            <field name="inherit_id" ref="clv_cmed_medicament.clv_cmed_medicament_list_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <div name="title" position="inside">
+                    <label for="directory_id" class="oe_edit_only"/>
+                    <h3><field name="directory_id" options="{'no_open': False, 'no_create': True}" invisible="0"/></h3>
+                    <label for="stored_file_name" class="oe_edit_only"/>
+                    <h3><field name="stored_file_name" class="oe_edit_only" invisible="0"/></h3>
+                    <label for="file_content" class="oe_edit_only"/>
+                    <field name="file_name" invisible="1"/>
+                    <h3><field name="file_content" filename="file_name"/></h3>
+                </div>
+            </field>
+        </record>
+
+        <record id="clv_cmed_medicament_list_view_tree_file_system" model="ir.ui.view">
+            <field name="name">clv.cmed.medicament.list.tree</field>
+            <field name="model">clv.cmed.medicament.list</field>
+            <field name="inherit_id" ref="clv_cmed_medicament.clv_cmed_medicament_list_view_tree"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="file_name" invisible="1"/>
+                    <field name="file_content" filename="file_name"/>
+                    <field name="stored_file_name" invisible="1"/>
+                    <field name="directory_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

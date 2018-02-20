@@ -29,6 +29,7 @@
     'images': [],
     'depends': [
         'clv_medicament',
+        'clv_file_system',
     ],
     'data': [
         'security/cmed_medicament_security.xml',
@@ -36,6 +37,7 @@
         'views/cmed_medicament_view.xml',
         'views/cmed_medicament_list_view.xml',
         'views/cmed_medicament_list_item_view.xml',
+        'views/file_system_view.xml',
     ],
     'demo': [],
     'test': [],
