@@ -38,7 +38,7 @@
         'views/cmed_medicament_list_view.xml',
         'views/cmed_medicament_list_item_view.xml',
         'views/file_system_view.xml',
-        'wizard/file_system_directory_file_upload_view.xml',
+        'wizard/cmed_medicament_list_file_upload_view.xml',
     ],
     'demo': [],
     'test': [],
