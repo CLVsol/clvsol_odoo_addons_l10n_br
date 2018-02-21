@@ -9,3 +9,4 @@
 ###############################################################################
 
 from . import cmed_medicament_list_file_upload
+from . import cmed_medicament_list_file_import

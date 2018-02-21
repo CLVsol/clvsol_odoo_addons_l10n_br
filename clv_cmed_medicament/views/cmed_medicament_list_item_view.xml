@@ -45,6 +45,7 @@
                                         <field name="pf_17"/>
                                         <field name="pf_17_alc"/>
                                         <field name="pf_17_5"/>
+                                        <field name="pf_17_5_alc"/>
                                         <field name="pf_18"/>
                                         <field name="pf_18_alc"/>
                                         <field name="pf_20"/>
@@ -55,6 +56,7 @@
                                         <field name="pmc_17"/>
                                         <field name="pmc_17_alc"/>
                                         <field name="pmc_17_5"/>
+                                        <field name="pmc_17_5_alc"/>
                                         <field name="pmc_18"/>
                                         <field name="pmc_18_alc"/>
                                         <field name="pmc_20"/>
