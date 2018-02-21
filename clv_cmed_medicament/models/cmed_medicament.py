@@ -35,6 +35,7 @@ class CMEDMedicament(models.Model):
     produto = fields.Char(string=u'Produto')
     apresentacao = fields.Char(string=u'Apresentação')
     classe_terapeutica = fields.Char(string=u'Classe Terapêutica')
+    tipo_de_produto = fields.Char(string=u'Tipo de Produto')
     tipo_status_produto = fields.Char(string=u'Tipo de Produto (Status do Produto)')
 
     restr_hospitalar = fields.Char(string=u'Restrição Hospitalar')

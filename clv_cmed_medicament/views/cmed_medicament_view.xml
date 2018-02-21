@@ -65,6 +65,7 @@
                                         <field name="produto"/>
                                         <field name="apresentacao"/>
                                         <field name="classe_terapeutica"/>
+                                        <field name="tipo_de_produto"/>
                                         <field name="tipo_status_produto"/>
                                     </group>
                                     <group>

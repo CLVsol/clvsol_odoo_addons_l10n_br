@@ -50,6 +50,7 @@ def get_fields():
     fields['produto'] = [False, u'PRODUTO', True, False]
     fields['apresentacao'] = [False, u'APRESENTAÇÃO', True, False]
     fields['classe_terapeutica'] = [False, u'CLASSE TERAPÊUTICA', True, False]
+    fields['tipo_de_produto'] = [False, u'TIPO DE PRODUTO', True, False]
     fields['tipo_status_produto'] = [False, u'TIPO DE PRODUTO (STATUS DO PRODUTO)', True, False]
 
     fields['restr_hospitalar'] = [False, u'RESTRIÇÃO HOSPITALAR', True, False]
@@ -135,6 +136,8 @@ class CMEDMedicamentListFileImport(models.TransientModel):
 
         cmed_medicament_list = self.env['clv.cmed.medicament.list'].browse(self._context.get('active_id'))
 
+        cmed_medicament_list.cmed_list_item_ids.unlink()
+
         _logger.info(u'%s %s (%s)', '>>>>>', cmed_medicament_list.name, self.file_name)
 
         filepath = cmed_medicament_list.directory_id.directory + '/' + self.file_name
@@ -156,19 +159,21 @@ class CMEDMedicamentListFileImport(models.TransientModel):
                 if sheet.cell_value(row_nr, 0) == fields['principio_ativo'][1] and \
                    sheet.cell_value(row_nr, 3) == fields['codigo_ggrem'][1] and \
                    sheet.cell_value(row_nr, 5) == fields['ean'][1] and \
-                   sheet.cell_value(row_nr, 8) == fields['classe_terapeutica'][1] and \
-                   sheet.cell_value(row_nr, 9) == fields['tipo_status_produto'][1]:
+                   sheet.cell_value(row_nr, 8) == fields['classe_terapeutica'][1]:
                     heading_row = row_nr
 
             if heading_row is not False and last_col_nr == 0:
 
-                for col_nr in range(34):
+                for col_nr in range(40):
 
-                    cell_value = sheet.cell_value(row_nr, col_nr)
-                    for field_str in fields:
-                        if cell_value == fields[field_str][1]:
-                            fields[field_str][0] = col_nr
-                            last_col_nr = col_nr
+                    try:
+                        cell_value = sheet.cell_value(row_nr, col_nr)
+                        for field_str in fields:
+                            if cell_value == fields[field_str][1]:
+                                fields[field_str][0] = col_nr
+                                last_col_nr = col_nr
+                    except Exception:
+                        pass
 
                     col_nr += 1
 
@@ -229,12 +234,12 @@ class CMEDMedicamentListFileImport(models.TransientModel):
 
                     _logger.info(u'>>>>>>>>>>>>>>>>>>>> %s', new_cmed_medicament_list_item.medicament_id.codigo_ggrem)
 
-        _logger.info('>>>>> fields: %s', fields)
-        _logger.info('>>>>> heading_row: %s', heading_row)
-        _logger.info('>>>>> last_col_nr: %s', last_col_nr)
-        _logger.info('>>>>> row_count: %s', row_count)
-        _logger.info('>>>>> found: %s', found)
-        _logger.info('>>>>> not_found: %s', not_found)
-        _logger.info('>>>>> Execution time: %s', secondsToStr(time() - start))
+        _logger.info('>>>>>>>>>> fields: %s', fields)
+        _logger.info('>>>>>>>>>> heading_row: %s', heading_row)
+        _logger.info('>>>>>>>>>> last_col_nr: %s', last_col_nr)
+        _logger.info('>>>>>>>>>> row_count: %s', row_count)
+        _logger.info('>>>>>>>>>> found: %s', found)
+        _logger.info('>>>>>>>>>> not_found: %s', not_found)
+        _logger.info('>>>>>>>>>> Execution time: %s', secondsToStr(time() - start))
 
         return True
