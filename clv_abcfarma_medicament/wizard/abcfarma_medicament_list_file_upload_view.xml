@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_abcfarma_medicament_list_file_upload_view_form" model="ir.ui.view">
+            <field name="name">clv.abcfarma.medicament.list.file_upload.form</field>
+            <field name="model">clv.abcfarma.medicament.list.file_upload</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_right">
+                    </div>
+                    <label for="directory_id"/>
+                    <field name="directory_id" options="{'no_open': False, 'no_create': True}"/>
+                    <group>
+                        <group>
+                            <field name="upload_file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <footer>
+                        <button 
+                            type="object"
+                            name="do_abcfarma_medicament_list_file_upload"
+                            string="File Upload"
+                            class="oe_highlight"
+                            />
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- More button Action -->
+        <act_window 
+            id="clv_abcfarma_medicament_list_file_upload_action"
+            name="File Upload"
+            src_model="clv.abcfarma.medicament.list"
+            res_model="clv.abcfarma.medicament.list.file_upload"
+            view_mode="form, tree"
+            target="new"
+            groups="clv_file_system.group_manager"
+        />
+
+    </data>
+</odoo>
