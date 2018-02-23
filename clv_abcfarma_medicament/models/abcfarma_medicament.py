@@ -33,7 +33,7 @@ class ABCFarmaMedicament(models.Model):
     med_des = fields.Char(string='MED_DES')
     med_apr = fields.Char(string='MED_APR')
     med_barra = fields.Char(string='MED_BARRA')
-    med_gene = fields.Char(string='MED_GENE')
+    # med_gene = fields.Char(string='MED_GENE')
     med_negpos = fields.Char(string='MED_NEGPOS')
     med_princi = fields.Char(string='MED_PRINCI')
 

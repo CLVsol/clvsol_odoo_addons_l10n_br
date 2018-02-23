@@ -63,7 +63,7 @@
                                         <field name="med_des"/>
                                         <field name="med_apr"/>
                                         <field name="med_barra"/>
-                                        <field name="med_gene"/>
+                                        <!--field name="med_gene"/-->
                                         <field name="med_negpos"/>
                                         <field name="med_princi"/>
 
