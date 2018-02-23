@@ -36,6 +36,7 @@
         'views/abcfarma_medicament_view.xml',
         'views/abcfarma_medicament_list_view.xml',
         'views/abcfarma_medicament_list_item_view.xml',
+        'views/file_system_view.xml',
     ],
     'demo': [],
     'test': [],

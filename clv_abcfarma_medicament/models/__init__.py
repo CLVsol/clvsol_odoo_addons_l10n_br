@@ -21,3 +21,4 @@
 from . import abcfarma_medicament
 from . import abcfarma_medicament_list
 from . import abcfarma_medicament_list_item
+from . import file_system
