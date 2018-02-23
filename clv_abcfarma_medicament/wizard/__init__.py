@@ -9,3 +9,4 @@
 ###############################################################################
 
 from . import abcfarma_medicament_list_file_upload
+from . import abcfarma_medicament_list_file_import

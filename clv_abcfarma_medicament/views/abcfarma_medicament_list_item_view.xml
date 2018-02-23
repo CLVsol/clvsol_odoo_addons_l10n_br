@@ -40,11 +40,11 @@
                             <page string="Prices">
                                 <group>
                                     <group>
-                                        <field name="med_pco1"/>
                                         <field name="med_pla1"/>
+                                        <field name="med_pco1"/>
                                         <field name="med_fra1"/>
-                                        <field name="med_pco0"/>
                                         <field name="med_pla0"/>
+                                        <field name="med_pco0"/>
                                         <field name="med_fra0"/>
                                         <!--field name="med_pco12"/>
                                         <field name="med_pla12"/>

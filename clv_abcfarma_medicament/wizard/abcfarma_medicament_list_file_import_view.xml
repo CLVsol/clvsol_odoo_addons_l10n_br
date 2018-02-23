@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_abcfarma_medicament_list_file_import_view_form" model="ir.ui.view">
+            <field name="name">clv.abcfarma.medicament.list.file_import.form</field>
+            <field name="model">clv.abcfarma.medicament.list.file_import</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_right">
+                    </div>
+                    <label for="directory_id"/>
+                    <h3><field name="directory_id" options="{'no_open': True, 'no_create': True}"/></h3>
+                    <label for="file_name"/>
+                    <h3><field name="file_name"/></h3>
+                    <footer>
+                        <button 
+                            type="object"
+                            name="do_abcfarma_medicament_list_file_import"
+                            string="File Import"
+                            class="oe_highlight"
+                            />
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- More button Action -->
+        <act_window 
+            id="clv_abcfarma_medicament_list_file_import_action"
+            name="File Import"
+            src_model="clv.abcfarma.medicament.list"
+            res_model="clv.abcfarma.medicament.list.file_import"
+            view_mode="form, tree"
+            target="new"
+            groups="clv_file_system.group_manager"
+        />
+
+    </data>
+</odoo>

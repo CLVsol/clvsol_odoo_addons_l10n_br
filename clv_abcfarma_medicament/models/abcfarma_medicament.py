@@ -44,7 +44,7 @@ class ABCFarmaMedicament(models.Model):
     med_regims = fields.Char(string='MED_REGIMS')
     med_varpre = fields.Char(string='MED_VARPRE')
 
-    med_tipmed = fields.Char(string='MED_TRIPMED')
+    med_tipmed = fields.Char(string='MED_TIPMED')
     med_ref = fields.Char(string='MED_REF')
     med_ncm = fields.Char(string='MED_NCM')
     med_dcb = fields.Char(string='MED_DCB')
