@@ -26,13 +26,13 @@ class ABCFarmaMedicament(models.Model):
     _name = 'clv.abcfarma.medicament'
     _inherit = 'clv.medicament.model'
 
-    med_abc = fields.Char(string='MED_ABC')
+    ID_PRODUTO = fields.Char(string='ID_PRODUTO', help=u'CODIGO ABCFARMA DO PRODUTO (MED_ABC)')
     med_ctr = fields.Char(string='MED_CTR')
-    med_lab = fields.Char(string='MED_LAB')
-    lab_nom = fields.Char(string='LAB_NOM')
-    med_des = fields.Char(string='MED_DES')
-    med_apr = fields.Char(string='MED_APR')
-    med_barra = fields.Char(string='MED_BARRA')
+    ID_FABRICANTE = fields.Char(string='ID_FABRICANTE', help=u'CÓDIGO DO LABORATORIO NA ABCFARMA (MED_LAB)')
+    NOME_FABRICANTE = fields.Char(string='NOME_FABRICANTE', help=u'NOME DO LABORATÓRIO NA ABCFARMA (LAB_NOM)')
+    NOME = fields.Char(string='NOME', help=u'NOME DO PRODUTO (MED_DES)')
+    DESCRICAO = fields.Char(string=u'DESCRIÇÃO', help=u'APRESENTAÇÃO / DESCRIÇÃO DO PRODUTO (MED_APR)')
+    EAN = fields.Char(string='EAN', help=u'CÓDIGO DE BARRA DO PRODUTO (MED_BARRA)')
     # med_gene = fields.Char(string='MED_GENE')
     med_negpos = fields.Char(string='MED_NEGPOS')
     med_princi = fields.Char(string='MED_PRINCI')
@@ -58,7 +58,7 @@ class ABCFarmaMedicament(models.Model):
     med_cap = fields.Char(string='MED_CAP')
 
     _sql_constraints = [
-        ('med_abc_uniq',
-         'UNIQUE (med_abc)',
+        ('ID_PRODUTO_uniq',
+         'UNIQUE (ID_PRODUTO)',
          u'Error! The ABCFarma Code must be unique!'),
     ]

@@ -41,13 +41,13 @@ def get_fields():
 
     fields = {}
 
-    fields['med_abc'] = [False, u'MED_ABC', True, False]
+    fields['ID_PRODUTO'] = [False, u'MED_ABC', True, False]
     fields['med_ctr'] = [False, u'MED_CTR', True, False]
-    fields['med_lab'] = [False, u'MED_LAB', True, False]
-    fields['lab_nom'] = [False, u'LAB_NOM', True, False]
-    fields['med_des'] = [False, u'MED_DES', True, False]
-    fields['med_apr'] = [False, u'MED_APR', True, False]
-    fields['med_barra'] = [False, u'MED_BARRA', True, False]
+    fields['ID_FABRICANTE'] = [False, u'MED_LAB', True, False]
+    fields['NOME_FABRICANTE'] = [False, u'LAB_NOM', True, False]
+    fields['NOME'] = [False, u'MED_DES', True, False]
+    fields['DESCRICAO'] = [False, u'MED_APR', True, False]
+    fields['EAN'] = [False, u'MED_BARRA', True, False]
     fields['med_negpos'] = [False, u'MED_NEGPOS', True, False]
     fields['med_princi'] = [False, u'MED_PRINCI', True, False]
 
@@ -163,22 +163,22 @@ class ABCFarmaMedicamentListFileImport(models.TransientModel):
         # col_nr = 0
         for rec in db:
 
-            med_abc = False
-            if fields['med_abc'][0] is not False:
-                med_abc = rec[fields['med_abc'][1]]
-            if med_abc is not False:
+            ID_PRODUTO = False
+            if fields['ID_PRODUTO'][0] is not False:
+                ID_PRODUTO = rec[fields['ID_PRODUTO'][1]]
+            if ID_PRODUTO is not False:
 
                 row_count += 1
 
                 abcfarma_medicament = ABCFarmaMedicament.search([
-                    ('med_abc', '=', med_abc),
+                    ('ID_PRODUTO', '=', ID_PRODUTO),
                 ])
 
                 if abcfarma_medicament.id is False:
 
                     values = {}
 
-                    values['name'] = rec[fields['med_abc'][1]]
+                    values['name'] = rec[fields['ID_PRODUTO'][1]]
 
                     for field_str in fields:
                         if fields[field_str][0] is not False and fields[field_str][2] is not False:
@@ -186,12 +186,12 @@ class ABCFarmaMedicamentListFileImport(models.TransientModel):
 
                     new_abcfarma_medicament = ABCFarmaMedicament.create(values)
                     not_found += 1
-                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, new_abcfarma_medicament.med_abc)
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, new_abcfarma_medicament.ID_PRODUTO)
 
                 else:
 
                     found += 1
-                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, abcfarma_medicament.med_abc)
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, abcfarma_medicament.ID_PRODUTO)
 
                 values = {}
 
@@ -211,7 +211,7 @@ class ABCFarmaMedicamentListFileImport(models.TransientModel):
 
                 new_abcfarma_medicament_list_item = ABCFarmaMedicamentListItem.create(values)
 
-                _logger.info(u'>>>>>>>>>>>>>>>>>>>> %s', new_abcfarma_medicament_list_item.medicament_id.med_abc)
+                _logger.info(u'>>>>>>>>>>>>>>>>>>>> %s', new_abcfarma_medicament_list_item.medicament_id.ID_PRODUTO)
 
         _logger.info('>>>>>>>>>> fields: %s', fields)
         _logger.info('>>>>>>>>>> last_col_nr: %s', last_col_nr)

@@ -56,13 +56,13 @@
                                         <field name="date_inclusion"/>
                                     </group>
                                     <group>
-                                        <field name="med_abc"/>
+                                        <field name="ID_PRODUTO"/>
                                         <field name="med_ctr"/>
-                                        <field name="med_lab"/>
-                                        <field name="lab_nom"/>
-                                        <field name="med_des"/>
-                                        <field name="med_apr"/>
-                                        <field name="med_barra"/>
+                                        <field name="ID_FABRICANTE"/>
+                                        <field name="NOME_FABRICANTE"/>
+                                        <field name="NOME"/>
+                                        <field name="DESCRICAO"/>
+                                        <field name="EAN"/>
                                         <!--field name="med_gene"/-->
                                         <field name="med_negpos"/>
                                         <field name="med_princi"/>
@@ -108,7 +108,7 @@
                 <tree name="abcfarma_medicaments" string="ABCFarma Medicaments">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="med_barra"/>
+                    <field name="EAN"/>
                     <field name="presentation"/>
                     <field name="active_component_id"/>
                     <field name="concentration"/>
@@ -131,7 +131,7 @@
                     <field name="name"/>
                     <field name="medicament_name"/>
                     <field name="code"/>
-                    <field name="med_barra"/>
+                    <field name="EAN"/>
                     <field name="presentation"/>
                     <field name="active_component_id"/>
                     <field name="concentration"/>
