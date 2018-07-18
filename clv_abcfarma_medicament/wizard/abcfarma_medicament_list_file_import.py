@@ -19,7 +19,7 @@
 ###############################################################################
 
 import logging
-# from dbfpy import dbf
+from dbfpy import dbf
 from time import time
 
 from odoo import api, fields, models
@@ -141,77 +141,77 @@ class ABCFarmaMedicamentListFileImport(models.TransientModel):
         filepath = abcfarma_medicament_list.directory_id.directory + '/' + self.file_name
         _logger.info(u'>>>>>>>>>> %s', filepath)
 
-        # db = dbf.Dbf(filepath)
+        db = dbf.Dbf(filepath)
 
-        # headers = []
+        headers = []
+        col_nr = 0
+        for field in db.header.fields:
+            headers.append(field.name)
+            col_nr += 1
+            for field_str in fields:
+                if field.name == fields[field_str][1]:
+                    fields[field_str][0] = col_nr
+                    last_col_nr = col_nr
+        _logger.info(u'>>>>>>>>>> %s', headers)
+
+        # last_row = sheet.nrows - 1
+
+        # _logger.info(u'>>>>>>>>>> %s', last_row)
+
+        # heading_row = False
+        # last_col_nr = 0
         # col_nr = 0
-        # for field in db.header.fields:
-        #     headers.append(field.name)
-        #     col_nr += 1
-        #     for field_str in fields:
-        #         if field.name == fields[field_str][1]:
-        #             fields[field_str][0] = col_nr
-        #             last_col_nr = col_nr
-        # _logger.info(u'>>>>>>>>>> %s', headers)
+        for rec in db:
 
-        # # last_row = sheet.nrows - 1
+            ID_PRODUTO = False
+            if fields['ID_PRODUTO'][0] is not False:
+                ID_PRODUTO = rec[fields['ID_PRODUTO'][1]]
+            if ID_PRODUTO is not False:
 
-        # # _logger.info(u'>>>>>>>>>> %s', last_row)
+                row_count += 1
 
-        # # heading_row = False
-        # # last_col_nr = 0
-        # # col_nr = 0
-        # for rec in db:
+                abcfarma_medicament = ABCFarmaMedicament.search([
+                    ('ID_PRODUTO', '=', ID_PRODUTO),
+                ])
 
-        #     ID_PRODUTO = False
-        #     if fields['ID_PRODUTO'][0] is not False:
-        #         ID_PRODUTO = rec[fields['ID_PRODUTO'][1]]
-        #     if ID_PRODUTO is not False:
+                if abcfarma_medicament.id is False:
 
-        #         row_count += 1
+                    values = {}
 
-        #         abcfarma_medicament = ABCFarmaMedicament.search([
-        #             ('ID_PRODUTO', '=', ID_PRODUTO),
-        #         ])
+                    values['name'] = rec[fields['ID_PRODUTO'][1]]
 
-        #         if abcfarma_medicament.id is False:
+                    for field_str in fields:
+                        if fields[field_str][0] is not False and fields[field_str][2] is not False:
+                            values[field_str] = rec[fields[field_str][1]]
 
-        #             values = {}
+                    new_abcfarma_medicament = ABCFarmaMedicament.create(values)
+                    not_found += 1
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, new_abcfarma_medicament.ID_PRODUTO)
 
-        #             values['name'] = rec[fields['ID_PRODUTO'][1]]
+                else:
 
-        #             for field_str in fields:
-        #                 if fields[field_str][0] is not False and fields[field_str][2] is not False:
-        #                     values[field_str] = rec[fields[field_str][1]]
+                    found += 1
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, abcfarma_medicament.ID_PRODUTO)
 
-        #             new_abcfarma_medicament = ABCFarmaMedicament.create(values)
-        #             not_found += 1
-        #             _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, new_abcfarma_medicament.ID_PRODUTO)
+                values = {}
 
-        #         else:
+                values['list_id'] = abcfarma_medicament_list.id
+                if abcfarma_medicament.id is False:
+                    values['medicament_id'] = new_abcfarma_medicament.id
+                else:
+                    values['medicament_id'] = abcfarma_medicament.id
+                values['order'] = row_count + 1
 
-        #             found += 1
-        #             _logger.info(u'>>>>>>>>>>>>>>> %s %s', row_count, abcfarma_medicament.ID_PRODUTO)
+                for field_str in fields:
+                    value = rec[fields[field_str][1]]
+                    if fields[field_str][0] is not False and fields[field_str][3] is not False and \
+                       value is not None:
+                        values[field_str] = \
+                            float(str(value).replace(",", "."))
 
-        #         values = {}
+                new_abcfarma_medicament_list_item = ABCFarmaMedicamentListItem.create(values)
 
-        #         values['list_id'] = abcfarma_medicament_list.id
-        #         if abcfarma_medicament.id is False:
-        #             values['medicament_id'] = new_abcfarma_medicament.id
-        #         else:
-        #             values['medicament_id'] = abcfarma_medicament.id
-        #         values['order'] = row_count + 1
-
-        #         for field_str in fields:
-        #             value = rec[fields[field_str][1]]
-        #             if fields[field_str][0] is not False and fields[field_str][3] is not False and \
-        #                value is not None:
-        #                 values[field_str] = \
-        #                     float(str(value).replace(",", "."))
-
-        #         new_abcfarma_medicament_list_item = ABCFarmaMedicamentListItem.create(values)
-
-        #         _logger.info(u'>>>>>>>>>>>>>>>>>>>> %s', new_abcfarma_medicament_list_item.medicament_id.ID_PRODUTO)
+                _logger.info(u'>>>>>>>>>>>>>>>>>>>> %s', new_abcfarma_medicament_list_item.medicament_id.ID_PRODUTO)
 
         _logger.info('>>>>>>>>>> fields: %s', fields)
         _logger.info('>>>>>>>>>> last_col_nr: %s', last_col_nr)
