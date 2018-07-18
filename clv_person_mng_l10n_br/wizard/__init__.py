@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-import person_mng_address_search
-import person_mng_address_create
-import person_mng_address_confirm
-import person_mng_update_data
+from . import person_mng_address_search
+from . import person_mng_address_create
+from . import person_mng_address_confirm
+from . import person_mng_update_data
