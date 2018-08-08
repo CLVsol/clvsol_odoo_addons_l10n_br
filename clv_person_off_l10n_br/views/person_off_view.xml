@@ -25,5 +25,16 @@
             </field>
         </record>
 
+        <record id="clv_person_off_view_search_l10n_br" model="ir.ui.view">
+            <field name="name">clv.person.off.search</field>
+            <field name="model">clv.person.off</field>
+            <field name="inherit_id" ref="clv_person_off.clv_person_off_view_search"/>
+            <field name="arch" type="xml">
+                <filter name="street" position="after">
+                    <filter name="district" string="District" context="{'group_by': 'district'}"/>
+                </filter>
+            </field>
+        </record>
+
     </data>
 </openerp>
