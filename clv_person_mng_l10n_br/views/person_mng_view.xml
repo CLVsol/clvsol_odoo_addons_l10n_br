@@ -22,6 +22,9 @@
                 <field name="city" position="replace">
                     <field name="city" invisible="1"/>
                 </field>
+                <group name="settings" position="inside">
+                    <field name="use_district"/>
+                </group>
             </field>
         </record>
 

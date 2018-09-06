@@ -91,11 +91,20 @@ class PersonMng(models.Model):
 class PersonMng_2(models.Model):
     _inherit = 'clv.person.mng'
 
-    @api.depends('street', 'number', 'street2')
+    use_district = fields.Boolean(
+        string='Use District',
+        help="If checked, the Address Name will contain the field District.",
+        default=True
+    )
+
+    @api.depends('street', 'number', 'street2', 'district')
     def _get_suggested_address_name(self):
         for record in self:
             if record.street:
                 record.suggested_address_name = record.street
+                if record.use_district:
+                    if record.district:
+                        record.suggested_address_name = record.suggested_address_name + ' (' + record.district + ')'
                 if record.number:
                     record.suggested_address_name = record.suggested_address_name + ', ' + record.number
                 if record.street2:
