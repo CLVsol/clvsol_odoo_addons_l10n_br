@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 LasLabs Inc.
+     License GPL-3.0 or later (http://www.gnu.org/licenses/gpl). -->
+
+<odoo>
+
+    <record id="clv_abstract_entity_view_form_l10n_br" model="ir.ui.view">
+        <field name="name">clv.abstract.entity.form</field>
+        <field name="model">clv.abstract.entity</field>
+        <field name="priority">99</field>
+        <field name="inherit_id" ref="clv_entity.clv_abstract_entity_view_form"/>
+        <field name="arch" type="xml">
+            <field name="street2" position="replace"/>
+            <field name="zip" position="replace"/>
+            <field name="street" position="replace">
+                <field name="zip" placeholder="CEP" style="width:50%"/>
+                <button name="zip_search" type="object" class="oe_inline, oe_edit_only">
+                    <i class="fa fa-search"></i>
+                </button>
+                <field name="street" placeholder="Logradouro" class="o_address_street"/>
+                <field name="number" placeholder="Número" class="o_address_street"/>
+                <field name="street2" placeholder="Complemento" class="o_address_street"/>
+                <field name="district" placeholder="Bairro" class="o_address_street"/>
+            </field>
+            <field name="state_id" position="attributes">
+                <attribute name="domain">[('country_id','=',country_id)]</attribute>
+                <attribute name="style">width:100%</attribute>
+            </field>
+            <field name="country_id" position="replace"/>
+            <field name="state_id" position="before">
+                <field name="country_id" placeholder="País"/>
+            </field>
+            <field name="state_id" position="after">
+                <field name="l10n_br_city_id" placeholder="Cidade"/>
+            </field>
+            <field name="city" position="replace">
+                <field name="city" invisible="1"/>
+            </field>
+            <xpath expr="//div[@name='div_address']/field[@name='street']" position="after">
+                <field name="number" placeholder="Número"/>
+            </xpath>
+            <xpath expr="//div[@name='div_address']/field[@name='street2']" position="attributes">
+                <attribute name="placeholder">Complemento</attribute>
+            </xpath>
+            <xpath expr="//div[@name='div_address']/field[@name='street2']" position="after">
+                <field name="district" placeholder="Bairro"/>
+            </xpath>
+            <xpath expr="//div[@name='div_address']/field[@name='state_id']" position="after">
+                <field name="l10n_br_city_id" placeholder="Cidade" style="width: 40%%"/>
+            </xpath>
+            <xpath expr="//div[@name='div_address']/field[@name='city']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@name='div_address']" position="replace">
+                <div name="div_address">
+                    <field name="zip" placeholder="CEP" style="width: 20%"/>
+                    <div class="address_format">
+                        <field name="street" placeholder="Logradouro" style="width: 70%"/>
+                        <field name="number" placeholder="Número" style="width: 20%"/>
+                    </div>
+                    <div class="address_format">
+                        <field name="street2" placeholder="Complemento" style="width: 45%"/>
+                        <field name="district" placeholder="Bairro" style="width: 45%"/>
+                    </div>
+                    <div class="address_format">
+                        <field name="country_id" placeholder="País" class="oe_no_button"
+                               options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"
+                               style="width: 30%"/>
+                        <field name="state_id" class="oe_no_button" placeholder="Estado"
+                               style="width: 30%" options="{&quot;no_open&quot;: True}"
+                               domain="[('country_id','=',country_id)]"/>
+                        <field name="l10n_br_city_id" placeholder="Cidade" style="width: 30%"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
