@@ -50,7 +50,7 @@ class PersonOffAddressSearch(models.TransientModel):
                 if adddress.id is not False:
 
                     person_off.address_id = adddress.id
-                    person_off.action_address = 'confirm'
+                    person_off.action_address = 'none'
 
                     _logger.info(u'>>>>>>>>>> %s', person_off.address_id.name)
 
