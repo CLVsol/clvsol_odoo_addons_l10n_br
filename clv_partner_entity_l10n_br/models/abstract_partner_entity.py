@@ -5,8 +5,8 @@
 from odoo import models, api
 
 
-class AbstractEntity(models.AbstractModel):
-    _inherit = 'clv.abstract.entity'
+class AbstractPartnerEntity(models.AbstractModel):
+    _inherit = 'clv.abstract.partner_entity'
 
     @api.multi
     def zip_search(self):

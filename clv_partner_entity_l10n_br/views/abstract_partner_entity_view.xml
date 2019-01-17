@@ -4,17 +4,17 @@
 
 <odoo>
 
-    <record id="clv_abstract_entity_view_form_l10n_br" model="ir.ui.view">
-        <field name="name">clv.abstract.entity.form</field>
-        <field name="model">clv.abstract.entity</field>
+    <record id="clv_abstract_partner_entity_view_form_l10n_br" model="ir.ui.view">
+        <field name="name">clv.abstract.partner_entity.form</field>
+        <field name="model">clv.abstract.partner_entity</field>
         <field name="priority">99</field>
-        <field name="inherit_id" ref="clv_entity.clv_abstract_entity_view_form"/>
+        <field name="inherit_id" ref="clv_partner_entity.clv_abstract_partner_entity_view_form"/>
         <field name="arch" type="xml">
             <field name="street2" position="replace"/>
             <field name="zip" position="replace"/>
             <field name="street" position="replace">
                 <field name="zip" placeholder="CEP" style="width:50%"/>
-                <button name="zip_search" type="object" class="oe_inline, oe_edit_only">
+                <button name="zip_search" type="object" class="oe_inline, oe_edit_only" aria-label="Search" title="ZIP Search">
                     <i class="fa fa-search"></i>
                 </button>
                 <field name="street" placeholder="Logradouro" class="o_address_street"/>

@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Entity - Brazilian Localization',
-    'summary': 'Entity Module - Brazilian Localization.',
+    'name': 'Partner Entity - Brazilian Localization',
+    'summary': 'Partner Entity Module - Brazilian Localization.',
     'version': '3.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -12,11 +12,11 @@
     'website': 'https://github.com/CLVsol',
     'images': [],
     'depends': [
-        'clv_entity',
+        'clv_partner_entity',
         'l10n_br_base',
     ],
     'data': [
-        'views/abstract_entity_view.xml',
+        'views/abstract_partner_entity_view.xml',
     ],
     'demo': [],
     'test': [],
