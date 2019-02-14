@@ -19,13 +19,17 @@ class Address(models.Model):
         for record in self:
             if record.street:
                 record.suggested_name = record.street
-                if record.use_district:
-                    if record.district:
-                        record.suggested_name = record.suggested_name + ' (' + record.district + ')'
                 if record.number:
                     record.suggested_name = record.suggested_name + ', ' + record.number
                 if record.street2:
                     record.suggested_name = record.suggested_name + ' - ' + record.street2
+                if record.use_district:
+                    if record.district:
+                        record.suggested_name = record.suggested_name + ' (' + record.district + ')'
+            elif record.name:
+                record.suggested_name = record.name
+            else:
+                record.suggested_name = 'x'
             # else:
             #     if not record.suggested_name:
             #         if record.code:
