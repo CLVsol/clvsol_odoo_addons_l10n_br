@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import api, models
 
 _logger = logging.getLogger(__name__)
 
@@ -16,7 +16,7 @@ class PersonContactInformationUpdate(models.TransientModel):
     def do_person_contact_information_updt(self):
         self.ensure_one()
 
-        super(PersonContactInformationUpdate, self).do_person_contact_information_updt()
+        super().do_person_contact_information_updt()
 
         for person in self.person_ids:
 
