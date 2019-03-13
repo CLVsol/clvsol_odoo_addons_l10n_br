@@ -17,7 +17,7 @@ class PersonOffr(models.Model):
 
         for person_off in self:
 
-            _logger.info(u'>>>>> %s', self.related_person_id)
+            _logger.info(u'>>>>> %s', person_off.related_person_id)
 
             if (person_off.reg_state in ['draft', 'revised']) and \
                (person_off.related_person_id.id is not False):
@@ -30,7 +30,7 @@ class PersonOffr(models.Model):
                 data_values['responsible_id'] = person_off.related_person_id.responsible_id.id
                 data_values['caregiver_id'] = person_off.related_person_id.caregiver_id.id
 
-                if self.related_person_id.ref_address_id.id is not False:
+                if person_off.related_person_id.ref_address_id.id is not False:
 
                     data_values['ref_address_id'] = person_off.related_person_id.ref_address_id.id
 
@@ -43,15 +43,15 @@ class PersonOffr(models.Model):
                     data_values['l10n_br_city_id'] = person_off.related_person_id.ref_address_id.l10n_br_city_id.id
                     data_values['state_id'] = person_off.related_person_id.ref_address_id.state_id.id
                     data_values['country_id'] = person_off.related_person_id.ref_address_id.country_id.id
-                    data_values['phone'] = person_off.related_person_id.ref_address_id.phone
-                    data_values['mobile'] = person_off.related_person_id.ref_address_id.mobile
+                    # data_values['phone'] = person_off.related_person_id.ref_address_id.phone
+                    # data_values['mobile'] = person_off.related_person_id.ref_address_id.mobile
 
-                if self.related_person_id.family_id.id is not False:
+                if person_off.related_person_id.family_id.id is not False:
 
                     data_values['family_id'] = person_off.related_person_id.family_id.id
 
                 _logger.info(u'>>>>>>>>>> %s', data_values)
 
-                self.write(data_values)
+                person_off.write(data_values)
 
         return True
