@@ -9,7 +9,7 @@ from odoo import api, models
 _logger = logging.getLogger(__name__)
 
 
-class PersonOffr(models.Model):
+class PersonOff(models.Model):
     _inherit = 'clv.person_off'
 
     @api.multi
