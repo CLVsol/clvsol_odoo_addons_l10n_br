@@ -18,13 +18,13 @@ class AddressOff(models.Model):
         default=True
     )
 
-    @api.depends('street', 'number', 'street2', 'district')
+    @api.depends('street', 'street_number', 'street2', 'district')
     def _get_suggested_name(self):
         for record in self:
             if record.street:
                 record.suggested_name = record.street
-                if record.number:
-                    record.suggested_name = record.suggested_name + ', ' + record.number
+                if record.street_number:
+                    record.suggested_name = record.suggested_name + ', ' + record.street_number
                 if record.street2:
                     record.suggested_name = record.suggested_name + ' - ' + record.street2
                 if record.use_district:
@@ -54,12 +54,12 @@ class AddressOff(models.Model):
                 data_values['code'] = address_off.related_address_id.code
 
                 data_values['street'] = address_off.related_address_id.street
-                data_values['number'] = address_off.related_address_id.number
+                data_values['street_number'] = address_off.related_address_id.street_number
                 data_values['street2'] = address_off.related_address_id.street2
                 data_values['district'] = address_off.related_address_id.district
                 data_values['zip'] = address_off.related_address_id.zip
                 data_values['city'] = address_off.related_address_id.city
-                data_values['l10n_br_city_id'] = address_off.related_address_id.l10n_br_city_id.id
+                data_values['city_id'] = address_off.related_address_id.city_id.id
                 data_values['state_id'] = address_off.related_address_id.state_id.id
                 data_values['country_id'] = address_off.related_address_id.country_id.id
                 data_values['phone'] = address_off.related_address_id.phone
