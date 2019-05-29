@@ -28,12 +28,12 @@ class Family(models.Model):
                     data_values['ref_address_id'] = family.ref_address_id.id
 
                     data_values['street'] = family.ref_address_id.street
-                    data_values['number'] = family.ref_address_id.number
+                    data_values['street_number'] = family.ref_address_id.street_number
                     data_values['street2'] = family.ref_address_id.street2
                     data_values['district'] = family.ref_address_id.district
                     data_values['zip'] = family.ref_address_id.zip
                     data_values['city'] = family.ref_address_id.city
-                    data_values['l10n_br_city_id'] = family.ref_address_id.l10n_br_city_id.id
+                    data_values['city_id'] = family.ref_address_id.city_id.id
                     data_values['state_id'] = family.ref_address_id.state_id.id
                     data_values['country_id'] = family.ref_address_id.country_id.id
                     # data_values['phone'] = family.ref_address_id.phone
