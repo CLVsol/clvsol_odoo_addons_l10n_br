@@ -22,8 +22,8 @@ class PersonOffContactInformationUpdate(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', person_off.name)
 
-            person_off.number = person_off.ref_address_id.number
+            person_off.street_number = person_off.ref_address_id.street_number
             person_off.district = person_off.ref_address_id.district
-            person_off.l10n_br_city_id = person_off.ref_address_id.l10n_br_city_id
+            person_off.city_id = person_off.ref_address_id.city_id
 
         return True

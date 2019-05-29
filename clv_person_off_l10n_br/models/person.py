@@ -35,12 +35,12 @@ class PersonOff(models.Model):
                     data_values['ref_address_id'] = person_off.related_person_id.ref_address_id.id
 
                     data_values['street'] = person_off.related_person_id.ref_address_id.street
-                    data_values['number'] = person_off.related_person_id.ref_address_id.number
+                    data_values['street_number'] = person_off.related_person_id.ref_address_id.street_number
                     data_values['street2'] = person_off.related_person_id.ref_address_id.street2
                     data_values['district'] = person_off.related_person_id.ref_address_id.district
                     data_values['zip'] = person_off.related_person_id.ref_address_id.zip
                     data_values['city'] = person_off.related_person_id.ref_address_id.city
-                    data_values['l10n_br_city_id'] = person_off.related_person_id.ref_address_id.l10n_br_city_id.id
+                    data_values['city_id'] = person_off.related_person_id.ref_address_id.city_id.id
                     data_values['state_id'] = person_off.related_person_id.ref_address_id.state_id.id
                     data_values['country_id'] = person_off.related_person_id.ref_address_id.country_id.id
                     # data_values['phone'] = person_off.related_person_id.ref_address_id.phone
