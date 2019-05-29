@@ -28,12 +28,12 @@ class Person(models.Model):
                     data_values['ref_address_id'] = person.ref_address_id.id
 
                     data_values['street'] = person.ref_address_id.street
-                    data_values['number'] = person.ref_address_id.number
+                    data_values['stret_number'] = person.ref_address_id.stret_number
                     data_values['street2'] = person.ref_address_id.street2
                     data_values['district'] = person.ref_address_id.district
                     data_values['zip'] = person.ref_address_id.zip
                     data_values['city'] = person.ref_address_id.city
-                    data_values['l10n_br_city_id'] = person.ref_address_id.l10n_br_city_id.id
+                    data_values['city_id'] = person.ref_address_id.city_id.id
                     data_values['state_id'] = person.ref_address_id.state_id.id
                     data_values['country_id'] = person.ref_address_id.country_id.id
                     # data_values['phone'] = person.ref_address_id.phone
