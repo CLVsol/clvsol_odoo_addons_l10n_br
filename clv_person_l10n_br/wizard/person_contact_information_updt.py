@@ -42,9 +42,9 @@ class PersonContactInformationUpdate(models.TransientModel):
                 if self.updt_email:
                     values['email'] = person.ref_address_id.email
 
-                values['number'] = person.ref_address_id.number
+                values['street_number'] = person.ref_address_id.street_number
                 values['district'] = person.ref_address_id.district
-                values['l10n_br_city_id'] = person.ref_address_id.l10n_br_city_id.id
+                values['city_id'] = person.ref_address_id.city_id.id
 
                 _logger.info(u'%s %s %s', '>>>>>>>>>>', 'values:', values)
 
