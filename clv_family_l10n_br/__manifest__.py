@@ -16,7 +16,7 @@
         'l10n_br_base',
     ],
     'data': [
-        'views/family_view.xml',
+        # 'views/family_view.xml',
     ],
     'demo': [],
     'test': [],
