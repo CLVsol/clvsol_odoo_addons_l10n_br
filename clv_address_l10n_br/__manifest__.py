@@ -16,7 +16,7 @@
         'l10n_br_base',
     ],
     'data': [
-        'views/address_view.xml',
+        'views/address_name_view.xml',
     ],
     'demo': [],
     'test': [],
