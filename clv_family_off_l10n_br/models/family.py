@@ -19,8 +19,9 @@ class FamilyOff(models.Model):
 
             _logger.info(u'>>>>> %s', family_off.related_person_id)
 
-            if (family_off.reg_state in ['draft', 'revised']) and \
-               (family_off.related_person_id.id is not False):
+            # if (family_off.reg_state in ['draft', 'revised']) and \
+            #    (family_off.related_person_id.id is not False):
+            if (family_off.related_person_id.id is not False):
 
                 data_values = {}
                 data_values['name'] = family_off.related_person_id.name
