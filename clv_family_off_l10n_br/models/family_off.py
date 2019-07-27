@@ -30,20 +30,24 @@ class FamilyOff(models.Model):
             if (family_off.related_family_id.id is not False):
 
                 data_values = {}
-                # data_values['name'] = family_off.related_family_id.name
+                data_values['name'] = family_off.related_family_id.name
                 data_values['code'] = family_off.related_family_id.code
 
-                data_values['street'] = family_off.related_family_id.street
-                data_values['street_number'] = family_off.related_family_id.street_number
-                data_values['street2'] = family_off.related_family_id.street2
-                data_values['district'] = family_off.related_family_id.district
-                data_values['zip'] = family_off.related_family_id.zip
-                data_values['city'] = family_off.related_family_id.city
-                data_values['city_id'] = family_off.related_family_id.city_id.id
-                data_values['state_id'] = family_off.related_family_id.state_id.id
-                data_values['country_id'] = family_off.related_family_id.country_id.id
-                data_values['phone'] = family_off.related_family_id.phone
-                data_values['mobile'] = family_off.related_family_id.mobile
+                if self.related_family_id.ref_address_id.id is not False:
+
+                    data_values['ref_address_id'] = family_off.related_family_id.ref_address_id.id
+
+                    data_values['street'] = family_off.related_family_id.street
+                    data_values['street_number'] = family_off.related_family_id.street_number
+                    data_values['street2'] = family_off.related_family_id.street2
+                    data_values['district'] = family_off.related_family_id.district
+                    data_values['zip'] = family_off.related_family_id.zip
+                    data_values['city'] = family_off.related_family_id.city
+                    data_values['city_id'] = family_off.related_family_id.city_id.id
+                    data_values['state_id'] = family_off.related_family_id.state_id.id
+                    data_values['country_id'] = family_off.related_family_id.country_id.id
+                    data_values['phone'] = family_off.related_family_id.phone
+                    data_values['mobile'] = family_off.related_family_id.mobile
 
                 _logger.info(u'>>>>>>>>>> %s', data_values)
 
