@@ -9,17 +9,17 @@ from odoo import api, models
 _logger = logging.getLogger(__name__)
 
 
-class PersonOff(models.Model):
-    _inherit = 'clv.person_off'
+class PersonAux(models.Model):
+    _inherit = 'clv.person_aux'
 
     @api.multi
-    def do_person_off_clear_address_data(self):
+    def do_person_aux_clear_address_data(self):
 
-        for person_off in self:
+        for person_aux in self:
 
-            # _logger.info(u'>>>>> %s', person_off.ref_address_id)
+            # _logger.info(u'>>>>> %s', person_aux.ref_address_id)
 
-            # if (person_off.reg_state in ['draft', 'revised']):
+            # if (person_aux.reg_state in ['draft', 'revised']):
 
             data_values = {}
 
@@ -37,6 +37,6 @@ class PersonOff(models.Model):
 
             _logger.info(u'>>>>>>>>>> %s', data_values)
 
-            person_off.write(data_values)
+            person_aux.write(data_values)
 
         return True

@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Person (Off) - Brazilian Localization',
-    'summary': 'Person (Off) Module - Brazilian Localization.',
+    'name': 'Family (Aux) - Brazilian Localization',
+    'summary': 'Family (Aux) Module - Brazilian Localization.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -12,10 +12,11 @@
     'website': 'https://github.com/CLVsol',
     'images': [],
     'depends': [
-        'clv_person_off',
+        'clv_family_aux',
         'l10n_br_base',
     ],
     'data': [
+        'views/family_aux_view.xml',
     ],
     'demo': [],
     'test': [],

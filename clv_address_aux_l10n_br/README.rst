@@ -3,9 +3,9 @@
    :alt: License: AGPL-3
 
 ======================================
-Address (Off) - Brazilian Localization
+Address (Aux) - Brazilian Localization
 ======================================
 
-Address (Off) Module - Brazilian Localization.
+Address (Aux) Module - Brazilian Localization.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.

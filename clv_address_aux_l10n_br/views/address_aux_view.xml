@@ -4,10 +4,10 @@
 
 <openerp>
 
-    <record id="clv_family_off_view_form_l10n_br" model="ir.ui.view">
-        <field name="name">clv.family_off.form</field>
-        <field name="model">clv.family_off</field>
-        <field name="inherit_id" ref="clv_family_off.clv_family_off_view_form"/>
+    <record id="clv_address_aux_view_form_l10n_br" model="ir.ui.view">
+        <field name="name">clv.address_aux.form</field>
+        <field name="model">clv.address_aux</field>
+        <field name="inherit_id" ref="clv_address_aux.clv_address_aux_view_form"/>
         <field name="arch" type="xml">
             <group name="settings_left_3" position="inside">
                 <field name="use_district"/>
