@@ -5,9 +5,9 @@
 {
     'name': 'Person (Aux) - Brazilian Localization',
     'summary': 'Person (Aux) Module - Brazilian Localization.',
-    'version': '4.0.0',
+    'version': '12.0.4.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
+    'category': 'CLVsol Solutions',
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'images': [],
