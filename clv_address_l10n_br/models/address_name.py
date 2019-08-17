@@ -28,6 +28,3 @@ class Address(models.Model):
                         record.suggested_name = record.suggested_name + ' (' + record.district + ')'
             else:
                 record.suggested_name = 'Address Name...'
-            if record.automatic_set_name:
-                if record.name != record.suggested_name:
-                    record.name = record.suggested_name
