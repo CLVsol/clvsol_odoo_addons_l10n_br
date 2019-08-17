@@ -6,3 +6,4 @@ from . import family_aux
 from . import address
 from . import family
 from . import address_aux
+from . import family_aux_name
