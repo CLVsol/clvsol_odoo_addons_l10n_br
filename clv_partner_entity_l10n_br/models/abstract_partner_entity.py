@@ -12,3 +12,28 @@ class AbstractPartnerEntity(models.AbstractModel):
     def zip_search(self):
         self.ensure_one()
         return self.env['l10n_br.zip'].zip_search(self)
+
+    @api.multi
+    def do_set_contact_info_unavailable(self):
+
+        for record in self:
+
+            data_values = {}
+
+            data_values['contact_info_unavailable'] = True
+
+            data_values['street'] = False
+            data_values['street_number'] = False
+            data_values['street2'] = False
+            data_values['district'] = False
+            data_values['zip'] = False
+            data_values['city'] = False
+            data_values['city_id'] = False
+            data_values['state_id'] = False
+            data_values['country_id'] = False
+            # data_values['phone'] = False
+            # data_values['mobile'] = False
+
+            record.write(data_values)
+
+        return True
