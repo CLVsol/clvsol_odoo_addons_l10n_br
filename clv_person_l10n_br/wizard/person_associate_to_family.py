@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class PersonAssociateToFamily(models.TransientModel):
     _inherit = 'clv.person.associate_to_family'
 
-    @api.multi
+    # @api.multi
     def do_person_associate_to_family(self):
         self.ensure_one()
 

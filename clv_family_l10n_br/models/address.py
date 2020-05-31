@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class Family(models.Model):
     _inherit = 'clv.family'
 
-    @api.multi
+    # @api.multi
     def do_family_get_ref_address_data(self):
 
         for family in self:
@@ -45,7 +45,7 @@ class Family(models.Model):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_family_clear_address_data(self):
 
         for address_aux in self:

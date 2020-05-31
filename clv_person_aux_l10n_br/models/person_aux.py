@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class PersonAux(models.Model):
     _inherit = 'clv.person_aux'
 
-    @api.multi
+    # @api.multi
     def do_person_aux_get_related_person_data(self):
 
         for person_aux in self:
@@ -57,7 +57,7 @@ class PersonAux(models.Model):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_person_aux_get_ref_address_data(self):
 
         for person_aux in self:
@@ -90,7 +90,7 @@ class PersonAux(models.Model):
 
                 person_aux.write(data_values)
 
-    @api.multi
+    # @api.multi
     def do_person_aux_get_ref_address_aux_data(self):
 
         for person_aux in self:
@@ -124,7 +124,7 @@ class PersonAux(models.Model):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_person_aux_clear_address_data(self):
 
         for person_aux in self:

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class AddressAux(models.Model):
     _inherit = 'clv.address_aux'
 
-    @api.multi
+    # @api.multi
     def do_address_aux_get_related_address_data(self):
 
         for address_aux in self:
@@ -45,7 +45,7 @@ class AddressAux(models.Model):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_address_aux_clear_address_data(self):
 
         for address_aux in self:

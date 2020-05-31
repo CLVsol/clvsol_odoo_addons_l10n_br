@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class FamilyContactInformationUpdate(models.TransientModel):
     _inherit = 'clv.family.contact_information_updt'
 
-    @api.multi
+    # @api.multi
     def do_family_contact_information_updt(self):
         self.ensure_one()
 
