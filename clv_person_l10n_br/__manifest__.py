@@ -13,7 +13,8 @@
     'images': [],
     'depends': [
         'clv_person',
-        'l10n_br_base',
+        # 'l10n_br_base',
+        'clv_l10n_br_base',
     ],
     'data': [
     ],
