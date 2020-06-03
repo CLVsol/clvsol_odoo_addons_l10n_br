@@ -14,11 +14,11 @@ class AddressAux(models.Model):
         default=True
     )
 
-    @api.depends('street', 'street_number', 'street2', 'district')
+    @api.depends('street_name', 'street_number', 'street2', 'district')
     def _get_suggested_name(self):
         for record in self:
-            if record.street:
-                record.suggested_name = record.street
+            if record.street_name:
+                record.suggested_name = record.street_name
                 if record.street_number:
                     record.suggested_name = record.suggested_name + ', ' + record.street_number
                 if record.street2:
