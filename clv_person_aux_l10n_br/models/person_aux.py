@@ -35,7 +35,7 @@ class PersonAux(models.Model):
 
                     data_values['ref_address_id'] = person_aux.related_person_id.ref_address_id.id
 
-                    data_values['street'] = person_aux.related_person_id.ref_address_id.street
+                    data_values['street_name'] = person_aux.related_person_id.ref_address_id.street_name
                     data_values['street_number'] = person_aux.related_person_id.ref_address_id.street_number
                     data_values['street2'] = person_aux.related_person_id.ref_address_id.street2
                     data_values['district'] = person_aux.related_person_id.ref_address_id.district
@@ -74,7 +74,7 @@ class PersonAux(models.Model):
 
                     data_values['ref_address_id'] = person_aux.ref_address_id.id
 
-                    data_values['street'] = person_aux.ref_address_id.street
+                    data_values['street_name'] = person_aux.ref_address_id.street_name
                     data_values['street_number'] = person_aux.ref_address_id.street_number
                     data_values['street2'] = person_aux.ref_address_id.street2
                     data_values['district'] = person_aux.ref_address_id.district
@@ -106,7 +106,7 @@ class PersonAux(models.Model):
 
                     data_values['ref_address_aux_id'] = person_aux.ref_address_aux_id.id
 
-                    data_values['street'] = person_aux.ref_address_aux_id.street
+                    data_values['street_name'] = person_aux.ref_address_aux_id.street_name
                     data_values['street_number'] = person_aux.ref_address_aux_id.street_number
                     data_values['street2'] = person_aux.ref_address_aux_id.street2
                     data_values['district'] = person_aux.ref_address_aux_id.district
@@ -135,7 +135,7 @@ class PersonAux(models.Model):
 
             data_values = {}
 
-            data_values['street'] = False
+            data_values['street_name'] = False
             data_values['street_number'] = False
             data_values['street2'] = False
             data_values['district'] = False
