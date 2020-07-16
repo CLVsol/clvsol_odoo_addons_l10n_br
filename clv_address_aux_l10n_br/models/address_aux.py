@@ -27,7 +27,7 @@ class AddressAux(models.Model):
                 # data_values['name'] = address_aux.related_address_id.name
                 data_values['code'] = address_aux.related_address_id.code
 
-                data_values['street'] = address_aux.related_address_id.street
+                data_values['street_name'] = address_aux.related_address_id.street_name
                 data_values['street_number'] = address_aux.related_address_id.street_number
                 data_values['street2'] = address_aux.related_address_id.street2
                 data_values['district'] = address_aux.related_address_id.district
@@ -56,7 +56,7 @@ class AddressAux(models.Model):
 
             data_values = {}
 
-            data_values['street'] = False
+            data_values['street_name'] = False
             data_values['street_number'] = False
             data_values['street2'] = False
             data_values['district'] = False
