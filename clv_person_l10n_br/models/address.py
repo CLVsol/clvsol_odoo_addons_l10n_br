@@ -27,7 +27,7 @@ class Person(models.Model):
 
                     data_values['ref_address_id'] = person.ref_address_id.id
 
-                    data_values['street'] = person.ref_address_id.street
+                    data_values['street_name'] = person.ref_address_id.street_name
                     data_values['street_number'] = person.ref_address_id.street_number
                     data_values['street2'] = person.ref_address_id.street2
                     data_values['district'] = person.ref_address_id.district
