@@ -94,39 +94,39 @@ class PersonAux(models.Model):
 
     #             person_aux.write(data_values)
 
-    # # @api.multi
-    # def do_person_aux_get_ref_address_aux_data(self):
+    # @api.multi
+    def do_person_aux_get_ref_address_aux_data(self):
 
-    #     for person_aux in self:
+        for person_aux in self:
 
-    #         _logger.info(u'>>>>> %s', person_aux.ref_address_aux_id)
+            _logger.info(u'>>>>> %s', person_aux.ref_address_aux_id)
 
-    #         if (person_aux.reg_state in ['draft', 'revised']) and \
-    #            (person_aux.ref_address_aux_id.id is not False):
+            if (person_aux.reg_state in ['draft', 'revised']) and \
+               (person_aux.ref_address_aux_id.id is not False):
 
-    #             data_values = {}
+                data_values = {}
 
-    #             if person_aux.ref_address_aux_id.id is not False:
+                if person_aux.ref_address_aux_id.id is not False:
 
-    #                 data_values['ref_address_aux_id'] = person_aux.ref_address_aux_id.id
+                    data_values['ref_address_aux_id'] = person_aux.ref_address_aux_id.id
 
-    #                 data_values['street_name'] = person_aux.ref_address_aux_id.street_name
-    #                 data_values['street_number'] = person_aux.ref_address_aux_id.street_number
-    #                 data_values['street2'] = person_aux.ref_address_aux_id.street2
-    #                 data_values['district'] = person_aux.ref_address_aux_id.district
-    #                 data_values['zip'] = person_aux.ref_address_aux_id.zip
-    #                 data_values['city'] = person_aux.ref_address_aux_id.city
-    #                 data_values['city_id'] = person_aux.ref_address_aux_id.city_id.id
-    #                 data_values['state_id'] = person_aux.ref_address_aux_id.state_id.id
-    #                 data_values['country_id'] = person_aux.ref_address_aux_id.country_id.id
-    #                 # data_values['phone'] = person_aux.ref_address_aux_id.phone
-    #                 # data_values['mobile'] = person_aux.ref_address_aux_id.mobile
+                    data_values['street_name'] = person_aux.ref_address_aux_id.street_name
+                    data_values['street_number'] = person_aux.ref_address_aux_id.street_number
+                    data_values['street2'] = person_aux.ref_address_aux_id.street2
+                    data_values['district'] = person_aux.ref_address_aux_id.district
+                    data_values['zip'] = person_aux.ref_address_aux_id.zip
+                    data_values['city'] = person_aux.ref_address_aux_id.city
+                    data_values['city_id'] = person_aux.ref_address_aux_id.city_id.id
+                    data_values['state_id'] = person_aux.ref_address_aux_id.state_id.id
+                    data_values['country_id'] = person_aux.ref_address_aux_id.country_id.id
+                    # data_values['phone'] = person_aux.ref_address_aux_id.phone
+                    # data_values['mobile'] = person_aux.ref_address_aux_id.mobile
 
-    #             _logger.info(u'>>>>>>>>>> %s', data_values)
+                _logger.info(u'>>>>>>>>>> %s', data_values)
 
-    #             person_aux.write(data_values)
+                person_aux.write(data_values)
 
-    #     return True
+        return True
 
     # @api.multi
     def do_person_aux_clear_address_data(self):
