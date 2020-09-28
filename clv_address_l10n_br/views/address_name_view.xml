@@ -4,7 +4,7 @@
 
 <odoo>
 
-    <record id="clv_address_view_form_l10n_br" model="ir.ui.view">
+    <!--record id="clv_address_view_form_l10n_br" model="ir.ui.view">
         <field name="name">clv.address.form</field>
         <field name="model">clv.address</field>
         <field name="inherit_id" ref="clv_address.clv_address_view_form"/>
@@ -13,6 +13,6 @@
                 <field name="use_district"/>
             </group>
         </field>
-    </record>
+    </record-->
 
 </odoo>
