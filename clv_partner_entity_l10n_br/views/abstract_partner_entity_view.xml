@@ -10,7 +10,7 @@
         <field name="priority">99</field>
         <field name="inherit_id" ref="clv_partner_entity.clv_abstract_partner_entity_view_form"/>
         <field name="arch" type="xml">
-            <field name="street2" position="replace"/>
+            <!--field name="street2" position="replace"/>
             <field name="zip" position="replace"/>
             <field name="street_name" position="replace">
                 <field name="zip" placeholder="CEP" style="width:50%"/>
@@ -72,7 +72,18 @@
                         <field name="city_id" placeholder="Cidade" style="width: 30%"/>
                     </div>
                 </div>
-            </xpath>
+            </xpath-->
+            <field name="street2" position="replace">
+                <!--field name="street2" placeholder="Street 2..." class="o_address_street"
+                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/-->
+                <field name="street2" placeholder="District..." class="o_address_street"
+                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                <field name="district" placeholder="District..." class="o_address_street"
+                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
+            </field>
+            <field name="zip" position="after">
+                <button name="zip_search" type="object" class="btn-sm btn-link mb4 fa fa-search oe_edit_only" aria-label="Pesquisar CEP" title="Pesquisar CEP"/>
+            </field>
         </field>
     </record>
 
@@ -83,12 +94,12 @@
         <field name="arch" type="xml">
             <field name="entity_code" position="after">
                 <field name="city_id"/>
-                <field name="district"/>
+                <field name="street2"/>
                 <field name="street_name"/>
             </field>
             <group name="group_by" position="inside">
                 <filter name="group_by_city_id" string="City" context="{'group_by': 'city_id'}"/>
-                <filter name="group_by_district" string="District" context="{'group_by': 'district'}"/>
+                <filter name="group_by_district" string="District" context="{'group_by': 'street2'}"/>
                 <filter name="group_by_street_name" string="Street" context="{'group_by': 'street_name'}"/>
             </group>
         </field>
