@@ -81,6 +81,10 @@
                 <field name="district" placeholder="District..." class="o_address_street"
                     attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
             </field>
+            <field name="city" position="replace">
+                <field name="city" invisible="1"/>
+                <field name="city_id" placeholder="City" class="o_address_city" options="{'no_open': True, 'no_quick_create': True}"/>
+            </field>
             <field name="zip" position="after">
                 <button name="zip_search" type="object" class="btn-sm btn-link mb4 fa fa-search oe_edit_only" aria-label="Pesquisar CEP" title="Pesquisar CEP"/>
             </field>
